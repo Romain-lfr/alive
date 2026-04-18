@@ -1,540 +1,383 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Ipsum</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BDE Informatique — Alive</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div id="app">
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <div class="logo-circle">LRM</div>
-                <span class="brand-text">Lorem <span>Ipsum</span></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-center gap-1">
-                    <li class="nav-item"><a class="nav-link active" href="#accueil">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#soirees">Soirées</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#qui-sommes-nous">Qui sommes-nous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Nous contacter</a></li>
-                </ul>
-            </div>
+    <nav>
+        
+        <div class="nav-logo"> 
+            <img src="./img/logo.png"> 
+            BDE<span> Alive</span>
         </div>
+        <ul class="nav-links">
+        <li><a href="#equipe">Équipe</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#soirees">Soirées</a></li>
+        <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- HERO -->
-    <section class="hero" id="accueil">
-        <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6 hero-content">
-                    <h1>Lorem Ipsum Dolor<br><span class="highlight">Sit Amet</span></h1>
-                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Lorem ipsum dolor sit amet ! 🚀</p>
-                    <div>
-                        <a href="#qui-sommes-nous" class="btn-hero"><i class="fas fa-rocket me-2"></i>Découvrir</a>
-                        <a href="#contact" class="btn-hero-outline"><i class="fas fa-envelope me-2"></i>Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-illustration">
-                        <div class="hero-card-scene" id="heroScene">
-                            <div class="party-icons">
-                                <span>🎉</span>
-                                <span>💻</span>
-                                <span>🎊</span>
-                            </div>
-                            <div class="people-row">
-                                <div class="person p1">
-                                    <div class="person-head"></div>
-                                    <div class="person-body"></div>
-                                </div>
-                                <div class="person p2">
-                                    <div class="person-head"></div>
-                                    <div class="person-body"></div>
-                                </div>
-                                <div class="person p3">
-                                    <div class="person-head"></div>
-                                    <div class="person-body"></div>
-                                </div>
-                                <div class="person p4">
-                                    <div class="person-head"></div>
-                                    <div class="person-body"></div>
-                                </div>
-                                <div class="person p5">
-                                    <div class="person-head"></div>
-                                    <div class="person-body"></div>
-                                </div>
-                            </div>
-                            <div class="scene-text">Lorem ipsum dolor sit amet ! 🎶</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <header class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-orb"></div>
 
-    <!-- STATS -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="150">0</span>
-                        <span class="stat-label">Lorem actifs</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="25">0</span>
-                        <span class="stat-label">Ipsum / an</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="12">0</span>
-                        <span class="stat-label">Dolor réalisés</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="5">0</span>
-                        <span class="stat-label">Années d'existence</span>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-badge">
+        <div class="badge-dot"></div>
+        BDE Informatique — Promo 2025/2026
         </div>
-    </section>
 
-    <!-- QUI SOMMES NOUS -->
-    <section id="qui-sommes-nous">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title fade-up">Qui sommes-nous ?</h2>
-                <div class="accent-line fade-up"></div>
-                <p class="section-subtitle fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="about-card fade-up">
-                        <div class="about-icon blue">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h5>Lorem Ipsum</h5>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="about-card fade-up">
-                        <div class="about-icon cyan">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h5>Dolor Sit Amet</h5>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione sequi nesciunt.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="about-card fade-up">
-                        <div class="about-icon indigo">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h5>Consectetur Adipiscing</h5>
-                        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem.</p>
-                    </div>
-                </div>
-            </div>
+        <h1>On code.<br><span class="accent">On fête.</span><br>On innove.</h1>
+        <p class="hero-sub">ByteSquad, le bureau des étudiants en informatique. On crée des projets, on organise des soirées inoubliables et on porte haut les couleurs de la filière.</p>
+
+        <div class="hero-btns">
+        <a href="#projets" class="btn-primary">Voir nos projets</a>
+        <a href="#contact" class="btn-outline">Nous rejoindre</a>
         </div>
-    </section>
+
+
+    </header>
+
+    <div class="divider"></div>
 
     <!-- EQUIPE -->
-    <div class="team-section">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title fade-up">Notre Équipe</h2>
-                <div class="accent-line fade-up"></div>
-                <p class="section-subtitle fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-6 col-md-3">
-                    <div class="team-card fade-up">
-                        <div class="team-avatar t1">LM</div>
-                        <h6>Lorem Mattis</h6>
-                        <span class="team-role">Consectetur</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="team-card fade-up">
-                        <div class="team-avatar t2">SD</div>
-                        <h6>Sapien Dolor</h6>
-                        <span class="team-role">Adipiscing</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="team-card fade-up">
-                        <div class="team-avatar t3">TB</div>
-                        <h6>Tempor Blandit</h6>
-                        <span class="team-role">Eiusmod</span>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="team-card fade-up">
-                        <div class="team-avatar t4">ER</div>
-                        <h6>Elit Risus</h6>
-                        <span class="team-role">Ullamcorper</span>
-                    </div>
+    <section id="equipe" class="reveal">
+        <div class="section-label">Notre équipe</div>
+        <h2 class="section-title">Les têtes derrière le code</h2>
+        <p class="section-desc">Une équipe de passionnés au service des étudiants. Développeurs, designers, organisateurs, trésoriers — on a le profil pour tout gérer.</p>
+
+        <div class="team-grid">
+            
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PROJETS -->
+    <div class="projects-section">
+        <div class="projects-inner reveal" id="projets">
+        <div class="section-label">Derniers projets</div>
+        <h2 class="section-title">Ce qu'on a construit</h2>
+        <p class="section-desc">Des projets concrets, des outils utiles, des expériences mémorables. On pousse le code jusqu'au bout.</p>
+
+        <div class="projects-grid">
+            <div class="project-card" v-for="proj in projects" :key="proj.title">
+            <div class="project-header">
+                <div class="project-icon" :style="{ background: proj.iconBg }">{{ proj.icon }}</div>
+                <div>
+                <div class="project-title">{{ proj.title }}</div>
+                <div class="project-type" :style="{ color: proj.typeColor }">{{ proj.type }}</div>
                 </div>
             </div>
+            <div class="project-body">
+                <p class="project-desc">{{ proj.desc }}</p>
+                <div class="project-footer">
+                <div class="project-stack">
+                    <span class="stack-chip" v-for="t in proj.stack" :key="t">{{ t }}</span>
+                </div>
+                <span class="project-status" :class="proj.status === 'Terminé' ? 'status-done' : 'status-wip'">
+                    {{ proj.status }}
+                </span>
+                </div>
+            </div>
+            </div>
+        </div>
         </div>
     </div>
 
-    <!-- PROJETS -->
-    <section id="projets">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title fade-up">Nos Projets</h2>
-                <div class="accent-line fade-up"></div>
-                <p class="section-subtitle fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <div class="divider"></div>
+
+    <!-- SOIREES -->
+    <section id="soirees" class="reveal">
+        <div class="section-label">Dernières soirées</div>
+        <h2 class="section-title">On sait aussi s'amuser</h2>
+        <p class="section-desc">Le BDE c'est pas que des commits. On organise des événements qui restent dans les mémoires (ou pas, selon la soirée).</p>
+
+        <div class="parties-grid">
+        <div class="party-card" v-for="party in parties" :key="party.name">
+            <div class="party-banner" :style="{ background: party.bg }">
+            <span style="position: relative; z-index: 1; font-size: 3.5rem;">{{ party.emoji }}</span>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="project-card fade-up">
-                        <div class="project-img bg1">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="project-body">
-                            <h5>Lorem Ipsum</h5>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae.</p>
-                            <span class="project-tag">Consectetur</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project-card fade-up">
-                        <div class="project-img bg2">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="project-body">
-                            <h5>Dolor Sit Amet</h5>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione.</p>
-                            <span class="project-tag">Adipiscing</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project-card fade-up">
-                        <div class="project-img bg3">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="project-body">
-                            <h5>Tempor Incididunt</h5>
-                            <p>Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur.</p>
-                            <span class="project-tag">Eiusmod</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="party-body">
+            <div class="party-date">{{ party.date }}</div>
+            <div class="party-name">{{ party.name }}</div>
+            <div class="party-desc">{{ party.desc }}</div>
+            <div class="party-info">
+                <span>📍 {{ party.lieu }}</span>
+                <span>👥 {{ party.participants }} personnes</span>
             </div>
+            </div>
+        </div>
         </div>
     </section>
 
-    <!-- SOIRÉES -->
-    <section id="soirees">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title fade-up">Nos Soirées</h2>
-                <div class="accent-line fade-up"></div>
-                <p class="section-subtitle fade-up">Lorem ipsum dolor sit amet consectetur adipiscing elit 🎉</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="event-card fade-up">
-                        <div class="event-date-badge">
-                            <div class="day">15</div>
-                            <div class="month">Avril</div>
-                        </div>
-                        <div class="event-info">
-                            <h5>Lorem Ipsum Dolor</h5>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
-                            <div class="event-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Lorem Ipsum</span>
-                                <span><i class="fas fa-clock"></i> 21h00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="event-card fade-up">
-                        <div class="event-date-badge">
-                            <div class="day">28</div>
-                            <div class="month">Mai</div>
-                        </div>
-                        <div class="event-info">
-                            <h5>Sit Amet Consectetur 🎮</h5>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos.</p>
-                            <div class="event-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Dolor Sit</span>
-                                <span><i class="fas fa-clock"></i> 18h00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="event-card fade-up">
-                        <div class="event-date-badge">
-                            <div class="day">12</div>
-                            <div class="month">Juin</div>
-                        </div>
-                        <div class="event-info">
-                            <h5>Adipiscing Elit</h5>
-                            <p>Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid commodi.</p>
-                            <div class="event-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Amet Lorem</span>
-                                <span><i class="fas fa-clock"></i> 20h00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="divider"></div>
 
     <!-- CONTACT -->
-    <section id="contact">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title fade-up">Nous Contacter</h2>
-                <div class="accent-line fade-up"></div>
-                <p class="section-subtitle fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam !</p>
+    <div class="contact-section">
+        <div class="contact-inner reveal" id="contact">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">On reste connectés</h2>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+            <p class="section-desc">Une question, une idée de projet, ou tu veux rejoindre l'équipe ? On répond vite (enfin, après le standup du matin).</p>
+
+            <div class="contact-channels">
+                <a href="mailto:bde@univ-info.fr" class="channel-card">
+                <div class="channel-icon">✉️</div>
+                <div>
+                    <div class="channel-label">Email</div>
+                    <div class="channel-value">bde@univ-info.fr</div>
+                </div>
+                </a>
+                <a href="#" class="channel-card">
+                <div class="channel-icon">💬</div>
+                <div>
+                    <div class="channel-label">Discord</div>
+                    <div class="channel-value">discord.gg/bytesquad</div>
+                </div>
+                </a>
+                <a href="#" class="channel-card">
+                <div class="channel-icon">📸</div>
+                <div>
+                    <div class="channel-label">Instagram</div>
+                    <div class="channel-value">@bde.bytesquad</div>
+                </div>
+                </a>
+                <a href="#" class="channel-card">
+                <div class="channel-icon">🐙</div>
+                <div>
+                    <div class="channel-label">GitHub</div>
+                    <div class="channel-value">github.com/ByteSquad-BDE</div>
+                </div>
+                </a>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-7 fade-up">
-                    <div class="contact-form-wrapper">
-                        <form id="contactForm">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">Prénom</label>
-                                    <input type="text" class="form-control" placeholder="Ton prénom" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Nom</label>
-                                    <input type="text" class="form-control" placeholder="Ton nom" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" placeholder="lorem@ipsum.fr" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Sujet</label>
-                                    <select class="form-select">
-                                        <option selected disabled>Choisis un sujet</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Dolor Sit Amet</option>
-                                        <option>Consectetur Adipiscing</option>
-                                        <option>Sed Do Eiusmod</option>
-                                        <option>Autre</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Message</label>
-                                    <textarea class="form-control" rows="5" placeholder="Lorem ipsum dolor sit amet..." required></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn-submit">
-                                        <i class="fas fa-paper-plane me-2"></i>Envoyer
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            </div>
+
+            <div class="contact-form">
+            <div v-if="!formSent">
+                <div class="form-group">
+                <label>Ton prénom</label>
+                <input type="text" v-model="form.name" placeholder="Ex : Lucas" />
                 </div>
-                <div class="col-lg-5 fade-up">
-                    <div class="contact-info-card">
-                        <h4 class="fw-bold mb-4">Lorem Ipsum</h4>
-                        <div class="contact-info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h6>Adresse</h6>
-                                <p>Lorem Ipsum, Bureau 42<br>Dolor Sit Amet</p>
-                            </div>
-                        </div>
-                        <div class="contact-info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h6>Email</h6>
-                                <p>lorem@ipsum.fr</p>
-                            </div>
-                        </div>
-                        <div class="contact-info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h6>Horaires</h6>
-                                <p>Lundi - Vendredi : 10h - 18h</p>
-                            </div>
-                        </div>
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
+                <div class="form-group">
+                <label>Ton email</label>
+                <input type="email" v-model="form.email" placeholder="lucas@etudiant.fr" />
                 </div>
+                <div class="form-group">
+                <label>Objet</label>
+                <select v-model="form.subject">
+                    <option value="">-- Choisir --</option>
+                    <option>Rejoindre le BDE</option>
+                    <option>Proposer un projet</option>
+                    <option>Partenariat</option>
+                    <option>Autre</option>
+                </select>
+                </div>
+                <div class="form-group">
+                <label>Ton message</label>
+                <textarea v-model="form.message" placeholder="Dis-nous tout..."></textarea>
+                </div>
+                <button class="btn-primary" style="width: 100%;" @click="sendForm">Envoyer le message</button>
+            </div>
+            <div class="form-success" v-else>
+                Message envoyé !<br>
+                <span style="font-weight: 400; color: var(--muted); font-size: 0.88rem;">On te répond dans les 24h.</span>
+            </div>
             </div>
         </div>
-    </section>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="footer-brand">Lorem <span>Ipsum</span></div>
-                    <p>Dolor sit amet consectetur adipiscing elit.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="footer-links d-flex flex-wrap gap-3 justify-content-md-end">
-                        <a href="#accueil">Accueil</a>
-                        <a href="#projets">Projets</a>
-                        <a href="#soirees">Soirées</a>
-                        <a href="#qui-sommes-nous">Qui sommes-nous</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </div>
+        <div class="footer-top">
+        <div class="footer-brand">
+            <div class="nav-logo">Byte<span>Squad</span></div>
+            <p>Le BDE qui code autant qu'il fête. Rejoins-nous et fais partie de l'aventure informatique de ta promo.</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="#equipe">Notre équipe</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#soirees">Soirées</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
             </div>
-            <hr>
-            <p class="text-center mb-0" style="opacity:0.5; font-size:0.85rem;">© 2026 Lorem Ipsum — Omnis iste natus error. Fait avec 💙 par les étudiants.</p>
+            <div class="footer-col">
+            <h4>Ressources</h4>
+            <ul>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">Discord</a></li>
+                <li><a href="#">Notion</a></li>
+                <li><a href="#">Agenda</a></li>
+            </ul>
+            </div>
+            <div class="footer-col">
+            <h4>Info</h4>
+            <ul>
+                <li><a href="#">Règlement</a></li>
+                <li><a href="#">Devenir membre</a></li>
+                <li><a href="#">Partenaires</a></li>
+                <li><a href="#">Anciens BDE</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+        <div class="footer-bottom">
+        <span>© 2025 ByteSquad BDE — Tous droits réservés</span>
+        <div class="footer-socials">
+            <a class="social-btn" href="#">🐙</a>
+            <a class="social-btn" href="#">💬</a>
+            <a class="social-btn" href="#">📸</a>
+            <a class="social-btn" href="#">🐦</a>
+        </div>
+        <span>Made with ❤️ & Vue.js</span>
         </div>
     </footer>
 
-    <!-- SCROLL TOP -->
-    <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    </div>
 
-    <!-- TOAST -->
-    <div class="toast-custom" id="toast">✅ Message envoyé avec succès !</div>
-
-    <!-- BOOTSTRAP JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Confetti in hero scene
-        const scene = document.getElementById('heroScene');
-        const colors = ['#ff7043','#66bb6a','#42a5f5','#ab47bc','#ffa726','#00e5ff','#ffeb3b'];
-        for (let i = 0; i < 15; i++) {
-            const c = document.createElement('div');
-            c.className = 'confetti';
-            c.style.left = Math.random() * 100 + '%';
-            c.style.background = colors[Math.floor(Math.random() * colors.length)];
-            c.style.animationDelay = Math.random() * 3 + 's';
-            c.style.animationDuration = (2 + Math.random() * 2) + 's';
-            scene.appendChild(c);
-        }
+        const { createApp } = Vue;
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80;
-                    const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top: y, behavior: 'smooth' });
+        createApp({
+        data() {
+            return {
+            formSent: false,
+            form: { name: '', email: '', subject: '', message: '' },
+            team: [
+                {
+                name: 'Axel Moreau', initials: 'AM', role: 'Président',
+                bio: 'Master 2 Génie Logiciel. Vision, leadership et beaucoup de café. Il fédère l\'équipe depuis 2 ans.',
+                skills: ['Python', 'Gestion', 'DevOps'], avatarClass: 'avatar-cyan'
+                },
+                {
+                name: 'Léa Fontaine', initials: 'LF', role: 'Vice-Présidente',
+                bio: 'Experte en organisation et en communication. Elle s\'assure que tout roule — projets, events et partenariats.',
+                skills: ['React', 'Figma', 'PM'], avatarClass: 'avatar-purple'
+                },
+                {
+                name: 'Thomas Girard', initials: 'TG', role: 'Responsable Tech',
+                bio: 'Architecte de nos projets open source. Propre, scalable, et toujours bien documenté (enfin, presque).',
+                skills: ['Rust', 'Docker', 'Cloud'], avatarClass: 'avatar-blue'
+                },
+                {
+                name: 'Nina Dupont', initials: 'ND', role: 'Trésorière',
+                bio: 'Elle garde un œil sur les finances et fait en sorte qu\'on ne dépense pas tout en pizza un vendredi soir.',
+                skills: ['Excel', 'Finance', 'Budget'], avatarClass: 'avatar-teal'
+                },
+                {
+                name: 'Rayan Bel', initials: 'RB', role: 'Respo Events',
+                bio: 'Depuis qu\'il est là, aucune soirée ne s\'est passée sans un concept inoubliable. Son obsession : les vibes.',
+                skills: ['Event', 'Design', 'Comm'], avatarClass: 'avatar-coral'
                 }
-                // Close mobile nav
-                const nav = document.getElementById('navbarNav');
-                if (nav.classList.contains('show')) {
-                    bootstrap.Collapse.getInstance(nav)?.hide();
+            ],
+            projects: [
+                {
+                title: 'EtuGenius', icon: '🤖',
+                iconBg: 'rgba(0,212,255,0.12)',
+                type: 'IA & productivité',
+                typeColor: '#00D4FF',
+                desc: 'Un assistant IA pour les étudiants : résumé de cours, quiz auto-générés, et planning intelligent basé sur les deadlines.',
+                stack: ['Python', 'FastAPI', 'Vue.js', 'OpenAI'],
+                status: 'En cours'
+                },
+                {
+                title: 'CampusMap', icon: '🗺️',
+                iconBg: 'rgba(29,158,117,0.15)',
+                type: 'Web App',
+                typeColor: '#5DCAA5',
+                desc: 'Cartographie interactive du campus : salles disponibles, événements, restaurants — tout en temps réel. Plus besoin de galérer.',
+                stack: ['Leaflet', 'Node.js', 'PostgreSQL'],
+                status: 'Terminé'
+                },
+                {
+                title: 'HackByteSquad', icon: '⚡',
+                iconBg: 'rgba(186,117,23,0.15)',
+                type: 'Hackathon interne',
+                typeColor: '#EF9F27',
+                desc: '48h de code intensif, 12 équipes, 1 vainqueur. On a organisé le premier hackathon 100% étudiant de l\'école.',
+                stack: ['Organisation', 'Judges', 'Prizes'],
+                status: 'Terminé'
+                },
+                {
+                title: 'DevDashboard', icon: '📊',
+                iconBg: 'rgba(140,90,255,0.15)',
+                type: 'Outil interne',
+                typeColor: '#B69AFF',
+                desc: 'Dashboard de suivi des projets BDE : avancement, membres actifs, budget, tâches. Notre Jira mais en mieux (et gratuit).',
+                stack: ['Vue.js', 'Supabase', 'Chart.js'],
+                status: 'En cours'
                 }
-            });
-        });
-
-        // Active nav link on scroll
-        const sections = document.querySelectorAll('section[id], .hero');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(s => {
-                const top = s.offsetTop - 120;
-                if (window.pageYOffset >= top) {
-                    current = s.getAttribute('id');
+            ],
+            parties: [
+                {
+                name: 'ByteNight #4',
+                emoji: '🎮',
+                bg: 'linear-gradient(135deg, #0A1E40, #1B3A6B)',
+                date: 'Mars 2025',
+                desc: 'LAN party géante : 80 joueurs, 12 jeux, 0 sommeil. La nuit la plus épique de l\'année.',
+                lieu: 'Amphi B', participants: 80
+                },
+                {
+                name: 'Soirée Déguisée',
+                emoji: '🎭',
+                bg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)',
+                date: 'Février 2025',
+                desc: 'Thème : personnages de films de SF. Il y avait 4 Neo, 2 R2-D2 et un serveur Linux déguisé en pingouin.',
+                lieu: 'BDE Salle Festive', participants: 110
+                },
+                {
+                name: 'AfterCode',
+                emoji: '🍕',
+                bg: 'linear-gradient(135deg, #0D2B1A, #1A5233)',
+                date: 'Janvier 2025',
+                desc: 'Post-examens, pré-vacances. Pizza, jeux de société et débrief des partiels dans une ambiance décompressée.',
+                lieu: 'Rooftop Campus', participants: 60
+                },
+                {
+                name: 'Welcome Party',
+                emoji: '🚀',
+                bg: 'linear-gradient(135deg, #0A2340, #0C447C)',
+                date: 'Septembre 2024',
+                desc: 'Intégration des L1 info. On les a accueillis comme il se doit : avec du code, des jeux et une bonne ambiance.',
+                lieu: 'Gymnase Campus', participants: 150
                 }
-            });
-            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Scroll top button
-            const btn = document.getElementById('scrollTopBtn');
-            if (window.pageYOffset > 600) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
+            ]
             }
-        });
-
-        // Fade up on scroll
-        const fadeEls = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, i * 100);
-                    observer.unobserve(entry.target);
-                }
+        },
+        methods: {
+            sendForm() {
+            if (this.form.name && this.form.email) {
+                this.formSent = true;
+            }
+            }
+        },
+        mounted() {
+            const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
             });
-        }, { threshold: 0.15 });
+            }, { threshold: 0.12 });
 
-        fadeEls.forEach(el => observer.observe(el));
-
-        // Counter animation
-        const statNumbers = document.querySelectorAll('.stat-number');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.dataset.target);
-                    let current = 0;
-                    const step = target / 60;
-                    const timer = setInterval(() => {
-                        current += step;
-                        if (current >= target) {
-                            el.textContent = target + '+';
-                            clearInterval(timer);
-                        } else {
-                            el.textContent = Math.floor(current) + '+';
-                        }
-                    }, 25);
-                    statsObserver.unobserve(el);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        statNumbers.forEach(el => statsObserver.observe(el));
-
-        // Form submit
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-            this.reset();
-        });
-    </script>
-</body>
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+        }).mount('#app');
+        </script>
+    </body>
 </html>

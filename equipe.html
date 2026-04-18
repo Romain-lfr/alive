@@ -1,0 +1,57 @@
+<script>
+
+    const { createApp } = Vue;
+
+    createApp({
+    data() {
+        return {
+        formSent: false,
+        team: [
+            {
+            name: 'Axel Moreau', initials: 'AM', role: 'Président',
+            bio: 'Master 2 Génie Logiciel. Vision, leadership et beaucoup de café. Il fédère l\'équipe depuis 2 ans.',
+            img: './img/axel.jpg'
+            },
+            {
+            name: 'Léa Fontaine', initials: 'LF', role: 'Vice-Présidente',
+            bio: 'Experte en organisation et en communication. Elle s\'assure que tout roule — projets, events et partenariats.',
+            img: './img/lea.jpg',
+            },
+            {
+            name: 'Thomas Girard', initials: 'TG', role: 'Responsable Tech',
+            bio: 'Architecte de nos projets open source. Propre, scalable, et toujours bien documenté (enfin, presque).',
+            img: './img/thomas.jpg'
+            },
+            {
+            name: 'Nina Dupont', initials: 'ND', role: 'Trésorière',
+            bio: 'Elle garde un œil sur les finances et fait en sorte qu\'on ne dépense pas tout en pizza un vendredi soir.',
+            img: './img/nina.jpg'
+            },
+            {
+            name: 'Rayan Bel', initials: 'RB', role: 'Respo Events',
+            bio: 'Depuis qu\'il est là, aucune soirée ne s\'est passée sans un concept inoubliable. Son obsession : les vibes.',
+            img: './img/rayan.jpg'
+            }
+        ]
+        }
+    },
+
+    methods: {
+        sendForm() {
+        if (this.form.name && this.form.email) {
+            this.formSent = true;
+        }
+        }
+    },
+    mounted() {
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('visible');
+        });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+    }).mount('#app');
+
+</script>
