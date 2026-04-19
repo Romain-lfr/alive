@@ -7,6 +7,7 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -14,7 +15,6 @@
 
     <!-- NAVBAR -->
     <nav>
-        
         <div class="nav-logo"> 
             <img src="./img/logo.png"> 
             BDE<span> Alive</span>
@@ -32,20 +32,23 @@
         <div class="hero-grid"></div>
         <div class="hero-orb"></div>
 
+        <!-- Mascot left -->
+        <img src="./img/logo_blanc.png" class="hero-mascot hero-mascot-left" alt="mascotte">
+        <!-- Mascot right -->
+        <img src="./img/logo_blanc.png" class="hero-mascot hero-mascot-right" alt="mascotte">
+
         <div class="hero-badge">
         <div class="badge-dot"></div>
         BDE Informatique — Promo 2025/2026
         </div>
 
         <h1>On code.<br><span class="accent">On fête.</span><br>On innove.</h1>
-        <p class="hero-sub">ByteSquad, le bureau des étudiants en informatique. On crée des projets, on organise des soirées inoubliables et on porte haut les couleurs de la filière.</p>
+        <p class="hero-sub">ALIVE, le bureau des étudiants en informatique. On crée des projets, on organise des soirées inoubliables et on porte haut les couleurs de la filière.</p>
 
         <div class="hero-btns">
         <a href="#projets" class="btn-primary">Voir nos projets</a>
         <a href="#contact" class="btn-outline">Nous rejoindre</a>
         </div>
-
-
     </header>
 
     <div class="divider"></div>
@@ -57,7 +60,7 @@
         <p class="section-desc">Une équipe de passionnés au service des étudiants. Développeurs, designers, organisateurs, trésoriers — on a le profil pour tout gérer.</p>
 
         <div class="team-grid">
-            
+            <img src="./img/equipe.jpg" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 16/9;">
         </div>
     </section>
 
@@ -68,12 +71,14 @@
         <div class="projects-inner reveal" id="projets">
         <div class="section-label">Derniers projets</div>
         <h2 class="section-title">Ce qu'on a construit</h2>
-        <p class="section-desc">Des projets concrets, des outils utiles, des expériences mémorables. On pousse le code jusqu'au bout.</p>
+        <p class="section-desc">Des projets concrets, des outils utiles. On pousse le code jusqu'au bout.</p>
 
         <div class="projects-grid">
             <div class="project-card" v-for="proj in projects" :key="proj.title">
             <div class="project-header">
-                <div class="project-icon" :style="{ background: proj.iconBg }">{{ proj.icon }}</div>
+                <div class="project-icon" :style="{ background: proj.iconBg }">
+                    <i :class="proj.icon" :style="{ color: proj.typeColor }"></i>
+                </div>
                 <div>
                 <div class="project-title">{{ proj.title }}</div>
                 <div class="project-type" :style="{ color: proj.typeColor }">{{ proj.type }}</div>
@@ -106,15 +111,17 @@
         <div class="parties-grid">
         <div class="party-card" v-for="party in parties" :key="party.name">
             <div class="party-banner" :style="{ background: party.bg }">
-            <span style="position: relative; z-index: 1; font-size: 3.5rem;">{{ party.emoji }}</span>
+                <div class="party-icon">
+                    <i :class="party.icon"></i>
+                </div>
             </div>
             <div class="party-body">
             <div class="party-date">{{ party.date }}</div>
             <div class="party-name">{{ party.name }}</div>
             <div class="party-desc">{{ party.desc }}</div>
             <div class="party-info">
-                <span>📍 {{ party.lieu }}</span>
-                <span>👥 {{ party.participants }} personnes</span>
+                <span><i class="fa-solid fa-location-dot"></i> {{ party.lieu }}</span>
+                <span><i class="fa-solid fa-users"></i> {{ party.participants }} personnes</span>
             </div>
             </div>
         </div>
@@ -131,35 +138,28 @@
 
         <div class="contact-wrapper">
             <div class="contact-info">
-            <p class="section-desc">Une question, une idée de projet, ou tu veux rejoindre l'équipe ? On répond vite (enfin, après le standup du matin).</p>
+            <p class="section-desc">Une question, une idée de projet, ou tu veux rejoindre l'équipe ? On répond vite (enfin, normalement...).</p>
 
             <div class="contact-channels">
-                <a href="mailto:bde@univ-info.fr" class="channel-card">
-                <div class="channel-icon">✉️</div>
+                <a href="mailto:bdeinfo@inter-asso.fr" class="channel-card">
+                <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
                 <div>
                     <div class="channel-label">Email</div>
-                    <div class="channel-value">bde@univ-info.fr</div>
+                    <div class="channel-value">bdeinfo@inter-asso.fr</div>
                 </div>
                 </a>
-                <a href="#" class="channel-card">
-                <div class="channel-icon">💬</div>
+                <a href="https://discord.gg/yeB7ttZG3j" class="channel-card">
+                <div class="channel-icon"><i class="fa-brands fa-discord"></i></div>
                 <div>
                     <div class="channel-label">Discord</div>
-                    <div class="channel-value">discord.gg/bytesquad</div>
+                    <div class="channel-value">BDE ALIVE</div>
                 </div>
                 </a>
-                <a href="#" class="channel-card">
-                <div class="channel-icon">📸</div>
+                <a href="https://www.instagram.com/bde.info.alive/" class="channel-card">
+                <div class="channel-icon"><i class="fa-brands fa-instagram"></i></div>
                 <div>
                     <div class="channel-label">Instagram</div>
-                    <div class="channel-value">@bde.bytesquad</div>
-                </div>
-                </a>
-                <a href="#" class="channel-card">
-                <div class="channel-icon">🐙</div>
-                <div>
-                    <div class="channel-label">GitHub</div>
-                    <div class="channel-value">github.com/ByteSquad-BDE</div>
+                    <div class="channel-value">@bde.info.alive</div>
                 </div>
                 </a>
             </div>
@@ -204,7 +204,7 @@
     <footer>
         <div class="footer-top">
         <div class="footer-brand">
-            <div class="nav-logo">Byte<span>Squad</span></div>
+            <div class="nav-logo">BDE <span>Alive</span></div>
             <p>Le BDE qui code autant qu'il fête. Rejoins-nous et fais partie de l'aventure informatique de ta promo.</p>
         </div>
         <div class="footer-links">
@@ -238,19 +238,16 @@
         </div>
         </div>
         <div class="footer-bottom">
-        <span>© 2025 ByteSquad BDE — Tous droits réservés</span>
+        <span>© 2025 BDE Alive — Tous droits réservés</span>
         <div class="footer-socials">
-            <a class="social-btn" href="#">🐙</a>
-            <a class="social-btn" href="#">💬</a>
-            <a class="social-btn" href="#">📸</a>
-            <a class="social-btn" href="#">🐦</a>
+            <a class="social-btn" href="https://discord.gg/yeB7ttZG3j"><i class="fa-brands fa-discord"></i></a>
+            <a class="social-btn" href="https://www.instagram.com/bde.info.alive/"><i class="fa-brands fa-instagram"></i></a>
         </div>
-        <span>Made with ❤️ & Vue.js</span>
+        <span>Made with Vue.js </span>
         </div>
     </footer>
 
     </div>
-
 
     <script>
         const { createApp } = Vue;
@@ -260,104 +257,14 @@
             return {
             formSent: false,
             form: { name: '', email: '', subject: '', message: '' },
-            team: [
-                {
-                name: 'Axel Moreau', initials: 'AM', role: 'Président',
-                bio: 'Master 2 Génie Logiciel. Vision, leadership et beaucoup de café. Il fédère l\'équipe depuis 2 ans.',
-                skills: ['Python', 'Gestion', 'DevOps'], avatarClass: 'avatar-cyan'
-                },
-                {
-                name: 'Léa Fontaine', initials: 'LF', role: 'Vice-Présidente',
-                bio: 'Experte en organisation et en communication. Elle s\'assure que tout roule — projets, events et partenariats.',
-                skills: ['React', 'Figma', 'PM'], avatarClass: 'avatar-purple'
-                },
-                {
-                name: 'Thomas Girard', initials: 'TG', role: 'Responsable Tech',
-                bio: 'Architecte de nos projets open source. Propre, scalable, et toujours bien documenté (enfin, presque).',
-                skills: ['Rust', 'Docker', 'Cloud'], avatarClass: 'avatar-blue'
-                },
-                {
-                name: 'Nina Dupont', initials: 'ND', role: 'Trésorière',
-                bio: 'Elle garde un œil sur les finances et fait en sorte qu\'on ne dépense pas tout en pizza un vendredi soir.',
-                skills: ['Excel', 'Finance', 'Budget'], avatarClass: 'avatar-teal'
-                },
-                {
-                name: 'Rayan Bel', initials: 'RB', role: 'Respo Events',
-                bio: 'Depuis qu\'il est là, aucune soirée ne s\'est passée sans un concept inoubliable. Son obsession : les vibes.',
-                skills: ['Event', 'Design', 'Comm'], avatarClass: 'avatar-coral'
-                }
-            ],
             projects: [
-                {
-                title: 'EtuGenius', icon: '🤖',
-                iconBg: 'rgba(0,212,255,0.12)',
-                type: 'IA & productivité',
-                typeColor: '#00D4FF',
-                desc: 'Un assistant IA pour les étudiants : résumé de cours, quiz auto-générés, et planning intelligent basé sur les deadlines.',
-                stack: ['Python', 'FastAPI', 'Vue.js', 'OpenAI'],
-                status: 'En cours'
-                },
-                {
-                title: 'CampusMap', icon: '🗺️',
-                iconBg: 'rgba(29,158,117,0.15)',
-                type: 'Web App',
-                typeColor: '#5DCAA5',
-                desc: 'Cartographie interactive du campus : salles disponibles, événements, restaurants — tout en temps réel. Plus besoin de galérer.',
-                stack: ['Leaflet', 'Node.js', 'PostgreSQL'],
-                status: 'Terminé'
-                },
-                {
-                title: 'HackByteSquad', icon: '⚡',
-                iconBg: 'rgba(186,117,23,0.15)',
-                type: 'Hackathon interne',
-                typeColor: '#EF9F27',
-                desc: '48h de code intensif, 12 équipes, 1 vainqueur. On a organisé le premier hackathon 100% étudiant de l\'école.',
-                stack: ['Organisation', 'Judges', 'Prizes'],
-                status: 'Terminé'
-                },
-                {
-                title: 'DevDashboard', icon: '📊',
-                iconBg: 'rgba(140,90,255,0.15)',
-                type: 'Outil interne',
-                typeColor: '#B69AFF',
-                desc: 'Dashboard de suivi des projets BDE : avancement, membres actifs, budget, tâches. Notre Jira mais en mieux (et gratuit).',
-                stack: ['Vue.js', 'Supabase', 'Chart.js'],
-                status: 'En cours'
-                }
+                { title: 'Carte Partenaire', icon: 'fa-solid fa-address-card', iconBg: 'rgba(0,212,255,0.12)', type: 'Promotion', typeColor: '#00D4FF', desc: 'Profitez de nombreux avantages exclusifs et de réductions immédiates chez tous nos partenaires grâce à votre carte', stack: ['20 €'], status: 'En cours' },
+                { title: 'Pull 2025/2026', icon: 'fa-solid fa-shirt', iconBg: 'rgba(29,158,117,0.15)', type: 'Merchandise', typeColor: '#5DCAA5', desc: 'Portez haut les couleurs de l’édition 25/26 : bien plus qu’un pull, le symbole d’une promo qui vibre avec le BDE Alive.', stack: ['35 €'], status: 'En cours' }
             ],
             parties: [
-                {
-                name: 'ByteNight #4',
-                emoji: '🎮',
-                bg: 'linear-gradient(135deg, #0A1E40, #1B3A6B)',
-                date: 'Mars 2025',
-                desc: 'LAN party géante : 80 joueurs, 12 jeux, 0 sommeil. La nuit la plus épique de l\'année.',
-                lieu: 'Amphi B', participants: 80
-                },
-                {
-                name: 'Soirée Déguisée',
-                emoji: '🎭',
-                bg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)',
-                date: 'Février 2025',
-                desc: 'Thème : personnages de films de SF. Il y avait 4 Neo, 2 R2-D2 et un serveur Linux déguisé en pingouin.',
-                lieu: 'BDE Salle Festive', participants: 110
-                },
-                {
-                name: 'AfterCode',
-                emoji: '🍕',
-                bg: 'linear-gradient(135deg, #0D2B1A, #1A5233)',
-                date: 'Janvier 2025',
-                desc: 'Post-examens, pré-vacances. Pizza, jeux de société et débrief des partiels dans une ambiance décompressée.',
-                lieu: 'Rooftop Campus', participants: 60
-                },
-                {
-                name: 'Welcome Party',
-                emoji: '🚀',
-                bg: 'linear-gradient(135deg, #0A2340, #0C447C)',
-                date: 'Septembre 2024',
-                desc: 'Intégration des L1 info. On les a accueillis comme il se doit : avec du code, des jeux et une bonne ambiance.',
-                lieu: 'Gymnase Campus', participants: 150
-                }
+                { name: 'Match de foot A vs B', icon: 'fa-solid fa-futbol', bg: 'linear-gradient(135deg, #0A1E40, #1B3A6B)', date: 'Jeudi 19 Mars 2026 | 15h30', desc: 'Match de foot entre les classe A et B.', lieu: 'Stade René Guillou', participants: 30 },
+                { name: 'Soirée nouveaux BDE ', icon: 'fa-solid fa-champagne-glasses', bg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)', date: 'Jeudi 19 Mars 2026 | 22h00', desc: 'Soirée présentation du nouveau BDE Alive.', lieu: 'le Diplomate', participants: 80 },
+                { name: 'Tournoi de jeux vidéo vs MP', icon: 'fa-solid fa-gamepad', bg: 'linear-gradient(135deg, #0D2B1A, #1A5233)', date: 'Jeudi 12 Mars 2026 | 14h00', desc: 'Tournoi de jeux vidéo entre les étudiants du BDE Alive et du groupe MP.', lieu: 'Amphi MMI', participants: 40 }
             ]
             }
         },
@@ -374,10 +281,9 @@
                 if (e.isIntersecting) e.target.classList.add('visible');
             });
             }, { threshold: 0.12 });
-
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         }
         }).mount('#app');
-        </script>
+    </script>
     </body>
 </html>
