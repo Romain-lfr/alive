@@ -57,13 +57,15 @@
         </header>
 
         <main class="members-section">
-            <div class="bureau-section" v-if="filteredBureau.length > 0">
+
+            <!-- ── BUREAU ── -->
+            <template v-if="groupBureau.length > 0">
                 <div class="bureau-label reveal">
                     <span>Bureau exécutif</span>
                 </div>
                 <div class="bureau-grid">
                     <div 
-                        v-for="(member, index) in filteredBureau" 
+                        v-for="(member, index) in groupBureau" 
                         :key="member.id"
                         class="member-card reveal" 
                         :class="'reveal-delay-' + ((index % 5) + 1)"
@@ -84,15 +86,105 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </template>
 
-            <template v-if="filteredActifs.length > 0">
+            <!-- ── TRÉSORERIE ── -->
+            <template v-if="groupTreso.length > 0">
+                <div class="bureau-label reveal">
+                    <span>Trésorerie</span>
+                </div>
+                <div class="bureau-grid" v-if="groupTreso.filter(m => m.isResp).length > 0">
+                    <div v-for="(member, index) in groupTreso.filter(m => m.isResp)" :key="member.id"
+                        class="member-card reveal" :class="'reveal-delay-' + ((index % 5) + 1)">
+                        <div class="card-glow"></div>
+                        <div class="card-photo" :style="member.photo ? { backgroundImage: 'url(' + member.photo + ')', backgroundSize: 'cover', backgroundPosition: 'center' } : {}">
+                            <div v-if="!member.photo" class="card-photo-fallback" :class="member.roleClass">{{ getInitials(member.firstName, member.lastName) }}</div>
+                            <div class="card-role-badge" :class="member.roleClass">{{ member.role }}</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name"><span class="card-firstname">{{ member.firstName }}</span> {{ member.lastName }}</div>
+                            <div class="card-promo">{{ member.promoText }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="members-grid" v-if="groupTreso.filter(m => !m.isResp).length > 0">
+                    <div v-for="(member, index) in groupTreso.filter(m => !m.isResp)" :key="member.id"
+                        class="member-card-sm reveal" :class="'reveal-delay-' + ((index % 5) + 1)">
+                        <div class="card-photo-sm" :style="member.photo ? { backgroundImage: 'url(' + member.photo + ')', backgroundSize: 'cover', backgroundPosition: 'center' } : {}">
+                            <div v-if="!member.photo" class="card-photo-fallback-sm" :class="member.roleClass">{{ getInitials(member.firstName, member.lastName) }}</div>
+                        </div>
+                        <div class="card-body-sm">
+                            <div class="card-name-sm"><span class="card-firstname-sm">{{ member.firstName }}</span> {{ member.lastName }}</div>
+                            <div class="card-promo-sm">{{ member.promoText }}</div>
+                            <div class="card-role-sm" :class="member.roleClass">{{ member.role }}</div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- ── COMMUNICATION ── -->
+            <template v-if="groupComm.length > 0">
+                <div class="bureau-label reveal">
+                    <span>Communication</span>
+                </div>
+                <div class="bureau-grid" v-if="groupComm.filter(m => m.isResp).length > 0">
+                    <div v-for="(member, index) in groupComm.filter(m => m.isResp)" :key="member.id"
+                        class="member-card reveal" :class="'reveal-delay-' + ((index % 5) + 1)">
+                        <div class="card-glow"></div>
+                        <div class="card-photo" :style="member.photo ? { backgroundImage: 'url(' + member.photo + ')', backgroundSize: 'cover', backgroundPosition: 'center' } : {}">
+                            <div v-if="!member.photo" class="card-photo-fallback" :class="member.roleClass">{{ getInitials(member.firstName, member.lastName) }}</div>
+                            <div class="card-role-badge" :class="member.roleClass">{{ member.role }}</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name"><span class="card-firstname">{{ member.firstName }}</span> {{ member.lastName }}</div>
+                            <div class="card-promo">{{ member.promoText }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="members-grid" v-if="groupComm.filter(m => !m.isResp).length > 0">
+                    <div v-for="(member, index) in groupComm.filter(m => !m.isResp)" :key="member.id"
+                        class="member-card-sm reveal" :class="'reveal-delay-' + ((index % 5) + 1)">
+                        <div class="card-photo-sm" :style="member.photo ? { backgroundImage: 'url(' + member.photo + ')', backgroundSize: 'cover', backgroundPosition: 'center' } : {}">
+                            <div v-if="!member.photo" class="card-photo-fallback-sm" :class="member.roleClass">{{ getInitials(member.firstName, member.lastName) }}</div>
+                        </div>
+                        <div class="card-body-sm">
+                            <div class="card-name-sm"><span class="card-firstname-sm">{{ member.firstName }}</span> {{ member.lastName }}</div>
+                            <div class="card-promo-sm">{{ member.promoText }}</div>
+                            <div class="card-role-sm" :class="member.roleClass">{{ member.role }}</div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- ── ÉVÈNEMENTIEL ── -->
+            <template v-if="groupEvents.length > 0">
+                <div class="bureau-label reveal">
+                    <span>Évènementiel</span>
+                </div>
+                <div class="bureau-grid">
+                    <div v-for="(member, index) in groupEvents" :key="member.id"
+                        class="member-card reveal" :class="'reveal-delay-' + ((index % 5) + 1)">
+                        <div class="card-glow"></div>
+                        <div class="card-photo" :style="member.photo ? { backgroundImage: 'url(' + member.photo + ')', backgroundSize: 'cover', backgroundPosition: 'center' } : {}">
+                            <div v-if="!member.photo" class="card-photo-fallback" :class="member.roleClass">{{ getInitials(member.firstName, member.lastName) }}</div>
+                            <div class="card-role-badge" :class="member.roleClass">{{ member.role }}</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name"><span class="card-firstname">{{ member.firstName }}</span> {{ member.lastName }}</div>
+                            <div class="card-promo">{{ member.promoText }}</div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- ── MEMBRES ── -->
+            <template v-if="groupMembres.length > 0">
                 <div class="bureau-label reveal">
                     <span>Membres actifs</span>
                 </div>
                 <div class="members-grid">
                     <div 
-                        v-for="(member, index) in filteredActifs" 
+                        v-for="(member, index) in groupMembres" 
                         :key="member.id"
                         class="member-card-sm reveal"
                         :class="'reveal-delay-' + ((index % 5) + 1)"
@@ -111,6 +203,7 @@
                     </div>
                 </div>
             </template>
+
         </main>
 
         <footer>
@@ -143,45 +236,57 @@
     </div>
 
     <script>
-    const { createApp, ref, computed, onMounted, watch, nextTick } = Vue;
+    const { createApp, ref, computed, onMounted } = Vue;
 
     createApp({
         setup() {
-            const activeFilter = ref('all');
-
             const members = ref([
-                // --- BUREAU (Avec images spécifiques) ---
-                { id: 1, firstName: 'Paolo', lastName: 'PERCHE', promo: 'BUT2', promoText: '2 éme année', role: 'Président', roleClass: 'role-president', photo: './img/Paolo.jpg', isBureau: true },
-                { id: 2, firstName: 'Romain', lastName: 'LEFRANC', promo: 'BUT2', promoText: '2 éme année', role: 'Vice-Président', roleClass: 'role-vice', photo: './img/Romain.jpg', isBureau: true },
-                { id: 3, firstName: 'Gabin', lastName: 'CHEVALIER', promo: 'BUT2', promoText: '2 éme année', role: 'Vice-Président', roleClass: 'role-vice', photo: './img/Gabin.jpg', isBureau: true },
-                { id: 4, firstName: 'Nathan', lastName: 'LE HEBEL', promo: 'BUT2', promoText: '2 éme année', role: 'Vice-Président', roleClass: 'role-vice', photo: './img/Nathan.jpg', isBureau: true },
-                { id: 5, firstName: 'Thélio', lastName: 'BLEUZEN', promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Communication', roleClass: 'role-comm', photo: './img/Thélio.jpg', isBureau: true },
-                { id: 6, firstName: 'Johan', lastName: 'KERAUDREN', promo: 'BUT2', promoText: '2 éme année', role: 'Trésorier', roleClass: 'role-treso', photo: './img/Johan.jpg', isBureau: true },
-                { id: 7, firstName: 'Gaëtan', lastName: 'LOLLIERIC', promo: 'BUT2', promoText: '2 éme année', role: 'Secrétaire', roleClass: 'role-secretaire', photo: './img/Gaëtan.jpg', isBureau: true },
-                { id: 8, firstName: 'Titouan', lastName: 'QUILLEVERE', promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Events', roleClass: 'role-events', photo: './img/Titouan_Q.jpg', isBureau: true },
-                { id: 9, firstName: 'Yiwen', lastName: 'KADRI', promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Events', roleClass: 'role-events', photo: '', isBureau: true },
-                
-                // --- MEMBRES ACTIFS ---
-                { id: 10, firstName: 'Clément', lastName: 'BIGOUIN', promo: 'BUT1', promoText: '1 er année', role: 'Membre', roleClass: 'role', photo: './img/Clément.jpg', isBureau: false },
-                { id: 11, firstName: 'Lucien', lastName: 'LE GOC', promo: 'BUT1', promoText: '1 er année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 12, firstName: 'Ewen', lastName: 'SEVEN', promo: 'BUT2', promoText: '2 éme année', role: 'Communication', roleClass: 'role-comm', photo: './img/Ewen.jpg', isBureau: false },
-                { id: 13, firstName: 'Baptiste', lastName: 'GAULTIER', promo: 'BUT1', promoText: '1 er année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 14, firstName: 'Liam', lastName: 'CHARPENTIER', promo: 'BUT1', promoText: '1 er année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 15, firstName: 'Titouan', lastName: 'LOUIS--RENAULT', promo: 'BUT1', promoText: '1 er année', role: 'Trésorier', roleClass: 'role-treso', photo: './img/Titouan_L.jpg', isBureau: false },
-                { id: 16, firstName: 'Mael', lastName: 'FOURRE', promo: 'BUT2', promoText: '2 éme année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 17, firstName: 'Léo', lastName: 'TESSIER', promo: 'BUT2', promoText: '2 éme année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 22, firstName: 'Louennig', lastName: 'LE GALL', promo: 'BUT2', promoText: '2 éme année', role: 'Communication', roleClass: 'role-comm', photo: './img/Louennig.jpg', isBureau: false },
-                { id: 18, firstName: 'Clément', lastName: 'PHILIPPO', promo: 'BUT2', promoText: '2 éme année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 19, firstName: 'Mathis', lastName: 'LOQUAIS', promo: 'BUT2', promoText: '2 éme année', role: 'Communication', roleClass: 'role-comm', photo: '', isBureau: false },
-                { id: 20, firstName: 'Guéwen', lastName: 'MARÉCHAL', promo: 'BUT2', promoText: '2 éme année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 21, firstName: 'Thuân', lastName: 'DANG', promo: 'BUT2', promoText: '2 éme année', role: 'Trésorier', roleClass: 'role-treso', photo: './img/Thuan.jpg', isBureau: false },
-                { id: 22, firstName: 'Edgar', lastName: 'RODRIGUES MOREIRA', promo: 'BUT2', promoText: '2 éme année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 23, firstName: 'Edouard', lastName: 'LE LAY', promo: 'BUT2', promoText: '2 éme année', role: 'Membre', roleClass: 'role', photo: '', isBureau: false },
-                { id: 24, firstName: 'Yanis', lastName: 'GUERIF', promo: 'BUT1', promoText: '1 er année', role: 'Communication', roleClass: 'role-comm', photo: '', isBureau: false }
+                // --- BUREAU ---
+                { id: 1,  firstName: 'Paolo',    lastName: 'PERCHE',            promo: 'BUT2', promoText: '2 éme année', role: 'Président',          roleClass: 'role-president',  photo: './img/Paolo.jpg',      isBureau: true,  group: 'bureau' },
+                { id: 2,  firstName: 'Romain',   lastName: 'LEFRANC',           promo: 'BUT2', promoText: '2 éme année', role: 'Vice-Président',      roleClass: 'role-vice',       photo: './img/Romain.jpg',     isBureau: true,  group: 'bureau' },
+                { id: 3,  firstName: 'Gabin',    lastName: 'CHEVALIER',         promo: 'BUT2', promoText: '2 éme année', role: 'Vice-Président',      roleClass: 'role-vice',       photo: './img/Gabin.jpg',      isBureau: true,  group: 'bureau' },
+                { id: 4,  firstName: 'Nathan',   lastName: 'LE HEBEL',          promo: 'BUT2', promoText: '2 éme année', role: 'Vice-Président',      roleClass: 'role-vice',       photo: './img/Nathan.jpg',     isBureau: true,  group: 'bureau' },
+                { id: 7,  firstName: 'Gaëtan',   lastName: 'LOLLIERIC',         promo: 'BUT2', promoText: '2 éme année', role: 'Secrétaire',          roleClass: 'role-secretaire', photo: './img/Gaëtan.jpg',     isBureau: true,  group: 'bureau' },
+
+                // --- TRÉSORERIE ---
+                { id: 6,  firstName: 'Johan',    lastName: 'KERAUDREN',         promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Trésorerie',    roleClass: 'role-treso',      photo: './img/Johan.jpg',      isBureau: true,  group: 'treso',  isResp: true  },
+                { id: 15, firstName: 'Titouan',  lastName: 'LOUIS--RENAULT',    promo: 'BUT1', promoText: '1 er année',  role: 'Trésorier',           roleClass: 'role-treso',      photo: './img/Titouan_L.jpg',  isBureau: false, group: 'treso',  isResp: false },
+                { id: 21, firstName: 'Thuân',    lastName: 'DANG',              promo: 'BUT1', promoText: '1 er année', role: 'Trésorier',           roleClass: 'role-treso',      photo: './img/Thuan.jpg',      isBureau: false, group: 'treso',  isResp: false },
+
+                // --- COMMUNICATION ---
+                { id: 5,  firstName: 'Thélio',   lastName: 'BLEUZEN',           promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Communication', roleClass: 'role-comm',       photo: './img/Thélio.jpg',     isBureau: true,  group: 'comm',   isResp: true  },
+                { id: 12, firstName: 'Ewen',     lastName: 'SEVEN',             promo: 'BUT2', promoText: '2 éme année', role: 'Communication',       roleClass: 'role-comm',       photo: './img/Ewen.jpg',       isBureau: false, group: 'comm',   isResp: false },
+                { id: 22, firstName: 'Louennig', lastName: 'LE GALL',           promo: 'BUT2', promoText: '2 éme année', role: 'Communication',       roleClass: 'role-comm',       photo: './img/Louennig.jpg',   isBureau: false, group: 'comm',   isResp: false },
+                { id: 19, firstName: 'Mathis',   lastName: 'LOQUAIS',           promo: 'BUT2', promoText: '2 éme année', role: 'Communication',       roleClass: 'role-comm',       photo: '',                     isBureau: false, group: 'comm',   isResp: false },
+                { id: 24, firstName: 'Yanis',    lastName: 'GUERIF',            promo: 'BUT1', promoText: '1 er année',  role: 'Communication',       roleClass: 'role-comm',       photo: '',                     isBureau: false, group: 'comm',   isResp: false },
+
+                // --- ÉVÈNEMENTIEL ---
+                { id: 8,  firstName: 'Titouan',  lastName: 'QUILLEVERE',        promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Events',        roleClass: 'role-events',     photo: './img/Titouan_Q.jpg',  isBureau: true,  group: 'events', isResp: true  },
+                { id: 9,  firstName: 'Yiwen',    lastName: 'KADRI',             promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Events',        roleClass: 'role-events',     photo: '',                     isBureau: true,  group: 'events', isResp: true  },
+
+                // --- MEMBRES ---
+                { id: 10, firstName: 'Clément',  lastName: 'BIGOUIN',           promo: 'BUT1', promoText: '1 er année',  role: 'Membre',              roleClass: 'role',            photo: './img/Clément.jpg',    isBureau: false, group: 'membres' },
+                { id: 11, firstName: 'Lucien',   lastName: 'LE GOC',            promo: 'BUT1', promoText: '1 er année',  role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 13, firstName: 'Baptiste', lastName: 'GAULTIER',          promo: 'BUT1', promoText: '1 er année',  role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 14, firstName: 'Liam',     lastName: 'CHARPENTIER',       promo: 'BUT1', promoText: '1 er année',  role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 16, firstName: 'Mael',     lastName: 'FOURRE',            promo: 'BUT2', promoText: '2 éme année', role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 17, firstName: 'Léo',      lastName: 'TESSIER',           promo: 'BUT2', promoText: '2 éme année', role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 18, firstName: 'Clément',  lastName: 'PHILIPPO',          promo: 'BUT2', promoText: '2 éme année', role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 20, firstName: 'Guéwen',   lastName: 'MARÉCHAL',          promo: 'BUT2', promoText: '2 éme année', role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 23, firstName: 'Edgar',    lastName: 'RODRIGUES MOREIRA', promo: 'BUT2', promoText: '2 éme année', role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
+                { id: 25, firstName: 'Edouard',  lastName: 'LE LAY',            promo: 'BUT2', promoText: '2 éme année', role: 'Membre',              roleClass: 'role',            photo: '',                     isBureau: false, group: 'membres' },
             ]);
 
             const getInitials = (first, last) => (first[0] + last[0]).toUpperCase();
 
+            // Groupes filtrés
+            const groupBureau  = computed(() => members.value.filter(m => m.group === 'bureau'));
+            const groupTreso   = computed(() => members.value.filter(m => m.group === 'treso'));
+            const groupComm    = computed(() => members.value.filter(m => m.group === 'comm'));
+            const groupEvents  = computed(() => members.value.filter(m => m.group === 'events'));
+            const groupMembres = computed(() => members.value.filter(m => m.group === 'membres'));
+
+            // Encore disponible pour les compteurs du hero
             const filteredBureau = computed(() => members.value.filter(m => m.isBureau));
             const filteredActifs = computed(() => members.value.filter(m => !m.isBureau));
 
@@ -197,8 +302,12 @@
             onMounted(() => initObserver());
 
             return {
-                activeFilter,
                 members,
+                groupBureau,
+                groupTreso,
+                groupComm,
+                groupEvents,
+                groupMembres,
                 filteredBureau,
                 filteredActifs,
                 getInitials
