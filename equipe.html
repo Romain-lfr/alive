@@ -14,15 +14,18 @@
 <body>
     <div id="app">
         <nav>
-            <div class="nav-logo"> 
-                <img src="./img/logo.png"> 
-                BDE<span> Alive</span>
-            </div>
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo"> 
+                    <img src="./img/logo.png"> 
+                    BDE<span> Alive</span>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="#equipe">Équipe</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#soirees">Soirées</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#equipe">Équipe</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#soirees">Soirées</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
 
@@ -219,7 +222,22 @@
                             <li><a href="#equipe">Notre équipe</a></li>
                             <li><a href="#projets">Projets</a></li>
                             <li><a href="#soirees">Soirées</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Ressources</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/bde.info.alive/" target="_blank">Instagram</a></li>
+                            <li><a href="https://discord.gg/yeB7ttZG3j" target="_blank">Discord</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Info</h4>
+                        <ul>
+                            <li><a href="index.html#contact">Devenir membre</a></li>
+                            <li><a href="#">Partenaires</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -227,10 +245,10 @@
             <div class="footer-bottom">
                 <span>© 2025 BDE Alive — Tous droits réservés</span>
                 <div class="footer-socials">
-                    <a class="social-btn" href="#"><i class="fa-brands fa-discord"></i></a>
-                    <a class="social-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="social-btn" href="https://discord.gg/yeB7ttZG3j"><i class="fa-brands fa-discord"></i></a>
+                    <a class="social-btn" href="https://www.instagram.com/bde.info.alive/"><i class="fa-brands fa-instagram"></i></a>
                 </div>
-                <span>Made with Vue.js</span>
+                <span>Made with Vue.js </span>
             </div>
         </footer>
     </div>
@@ -257,12 +275,12 @@
                 { id: 5,  firstName: 'Thélio',   lastName: 'BLEUZEN',           promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Communication', roleClass: 'role-comm',       photo: './img/Thélio.jpg',     isBureau: true,  group: 'comm',   isResp: true  },
                 { id: 12, firstName: 'Ewen',     lastName: 'SEVEN',             promo: 'BUT2', promoText: '2 éme année', role: 'Communication',       roleClass: 'role-comm',       photo: './img/Ewen.jpg',       isBureau: false, group: 'comm',   isResp: false },
                 { id: 22, firstName: 'Louennig', lastName: 'LE GALL',           promo: 'BUT2', promoText: '2 éme année', role: 'Communication',       roleClass: 'role-comm',       photo: './img/Louennig.jpg',   isBureau: false, group: 'comm',   isResp: false },
-                { id: 19, firstName: 'Mathis',   lastName: 'LOQUAIS',           promo: 'BUT2', promoText: '2 éme année', role: 'Communication',       roleClass: 'role-comm',       photo: '',                     isBureau: false, group: 'comm',   isResp: false },
-                { id: 24, firstName: 'Yanis',    lastName: 'GUERIF',            promo: 'BUT1', promoText: '1 er année',  role: 'Communication',       roleClass: 'role-comm',       photo: '',                     isBureau: false, group: 'comm',   isResp: false },
+                { id: 19, firstName: 'Mathis',   lastName: 'LOQUAIS',           promo: 'BUT2', promoText: '2 éme année', role: 'Communication',       roleClass: 'role-comm',       photo: '',     isBureau: false, group: 'comm',   isResp: false },
+                { id: 24, firstName: 'Yanis',    lastName: 'GUERIF',            promo: 'BUT1', promoText: '1 er année',  role: 'Communication',       roleClass: 'role-comm',       photo: './img/Yanis.jpg',      isBureau: false, group: 'comm',   isResp: false },
 
                 // --- ÉVÈNEMENTIEL ---
                 { id: 8,  firstName: 'Titouan',  lastName: 'QUILLEVERE',        promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Events',        roleClass: 'role-events',     photo: './img/Titouan_Q.jpg',  isBureau: true,  group: 'events', isResp: true  },
-                { id: 9,  firstName: 'Yiwen',    lastName: 'KADRI',             promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Events',        roleClass: 'role-events',     photo: '',                     isBureau: true,  group: 'events', isResp: true  },
+                { id: 9,  firstName: 'Yiwen',    lastName: 'KADRI',             promo: 'BUT2', promoText: '2 éme année', role: 'Resp. Events',        roleClass: 'role-events',     photo: './img/Yiwen.jpg',      isBureau: true,  group: 'events', isResp: true  },
 
                 // --- MEMBRES ---
                 { id: 10, firstName: 'Clément',  lastName: 'BIGOUIN',           promo: 'BUT1', promoText: '1 er année',  role: 'Membre',              roleClass: 'role',            photo: './img/Clément.jpg',    isBureau: false, group: 'membres' },

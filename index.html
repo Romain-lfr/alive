@@ -16,15 +16,18 @@
 
     <!-- NAVBAR -->
     <nav>
-        <div class="nav-logo"> 
-            <img src="./img/logo.png"> 
-            BDE<span> Alive</span>
-        </div>
+        <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo"> 
+                    <img src="./img/logo.png"> 
+                    BDE<span> Alive</span>
+                </div>
+            </a>
         <ul class="nav-links">
-        <li><a href="#equipe">Équipe</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#soirees">Soirées</a></li>
-        <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#equipe">Équipe</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#soirees">Soirées</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -56,7 +59,7 @@
 
     <!-- EQUIPE -->
     <section id="equipe" class="reveal">
-        <div class="section-label">Notre équipe</div>
+        <div class="section-label"><a href="equipe.html">Notre équipe -></a></div>
         <h2 class="section-title">Les têtes derrière le code</h2>
         <p class="section-desc">Une équipe de passionnés au service des étudiants. Développeurs, designers, organisateurs, trésoriers — on a le profil pour tout gérer.</p>
 
@@ -167,35 +170,37 @@
             </div>
 
             <div class="contact-form">
-            <div v-if="!formSent">
-                <div class="form-group">
-                <label>Ton prénom</label>
-                <input type="text" v-model="form.name" placeholder="Ex : Lucas" />
+                <div v-if="!formSent">
+                    <div class="form-group">
+                        <label>Ton prénom</label>
+                        <input type="text" v-model="form.name" placeholder="Ex : Lucas" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ton email</label>
+                        <input type="email" v-model="form.email" placeholder="lucas@etudiant.fr" />
+                    </div>
+                    <div class="form-group">
+                        <label>Objet</label>
+                        <select v-model="form.subject">
+                            <option value="">-- Choisir --</option>
+                            <option>Rejoindre le BDE</option>
+                            <option>Proposer un projet</option>
+                            <option>Partenariat</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ton message</label>
+                        <textarea v-model="form.message" placeholder="Dis-nous tout..."></textarea>
+                    </div>
+                    <button class="btn-primary" style="width: 100%;" @click="sendForm" :disabled="formSending">
+                        {{ formSending ? 'Envoi en cours...' : 'Envoyer le message' }}
+                    </button>
                 </div>
-                <div class="form-group">
-                <label>Ton email</label>
-                <input type="email" v-model="form.email" placeholder="lucas@etudiant.fr" />
+                <div class="form-success" v-else>
+                    ✅ Message envoyé !<br>
+                    <span style="font-weight: 400; color: var(--muted); font-size: 0.88rem;">On te répond prochainement.</span>
                 </div>
-                <div class="form-group">
-                <label>Objet</label>
-                <select v-model="form.subject">
-                    <option value="">-- Choisir --</option>
-                    <option>Rejoindre le BDE</option>
-                    <option>Proposer un projet</option>
-                    <option>Partenariat</option>
-                    <option>Autre</option>
-                </select>
-                </div>
-                <div class="form-group">
-                <label>Ton message</label>
-                <textarea v-model="form.message" placeholder="Dis-nous tout..."></textarea>
-                </div>
-                <button class="btn-primary" style="width: 100%;" @click="sendForm">Envoyer le message</button>
-            </div>
-            <div class="form-success" v-else>
-                Message envoyé !<br>
-                <span style="font-weight: 400; color: var(--muted); font-size: 0.88rem;">On te répond dans les 24h.</span>
-            </div>
             </div>
         </div>
         </div>
@@ -204,47 +209,44 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-top">
-        <div class="footer-brand">
-            <div class="nav-logo">BDE <span>Alive</span></div>
-            <p>Le BDE qui code autant qu'il fête. Rejoins-nous et fais partie de l'aventure informatique de ta promo.</p>
-        </div>
-        <div class="footer-links">
-            <div class="footer-col">
-            <h4>Navigation</h4>
-            <ul>
-                <li><a href="#equipe">Notre équipe</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#soirees">Soirées</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="footer-brand">
+                <div class="nav-logo">BDE <span>Alive</span></div>
+                <p>Le BDE qui code autant qu'il fête. Rejoins-nous et fais partie de l'aventure informatique de ta promo.</p>
             </div>
-            <div class="footer-col">
-            <h4>Ressources</h4>
-            <ul>
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Discord</a></li>
-                <li><a href="#">Notion</a></li>
-                <li><a href="#">Agenda</a></li>
-            </ul>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="equipe.html">Notre équipe</a></li>
+                        <li><a href="#projets">Projets</a></li>
+                        <li><a href="#soirees">Soirées</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/bde.info.alive/" target="_blank">Instagram</a></li>
+                        <li><a href="https://discord.gg/yeB7ttZG3j" target="_blank">Discord</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="#contact">Devenir membre</a></li>
+                        <li><a href="#">Partenaires</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-col">
-            <h4>Info</h4>
-            <ul>
-                <li><a href="#">Règlement</a></li>
-                <li><a href="#">Devenir membre</a></li>
-                <li><a href="#">Partenaires</a></li>
-                <li><a href="#">Anciens BDE</a></li>
-            </ul>
-            </div>
-        </div>
         </div>
         <div class="footer-bottom">
-        <span>© 2025 BDE Alive — Tous droits réservés</span>
-        <div class="footer-socials">
-            <a class="social-btn" href="https://discord.gg/yeB7ttZG3j"><i class="fa-brands fa-discord"></i></a>
-            <a class="social-btn" href="https://www.instagram.com/bde.info.alive/"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-        <span>Made with Vue.js </span>
+            <span>© 2025 BDE Alive — Tous droits réservés</span>
+            <div class="footer-socials">
+                <a class="social-btn" href="https://discord.gg/yeB7ttZG3j"><i class="fa-brands fa-discord"></i></a>
+                <a class="social-btn" href="https://www.instagram.com/bde.info.alive/"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <span>Made with Vue.js </span>
         </div>
     </footer>
 
@@ -254,36 +256,48 @@
         const { createApp } = Vue;
 
         createApp({
-        data() {
-            return {
-            formSent: false,
-            form: { name: '', email: '', subject: '', message: '' },
-            projects: [
-                { title: 'Carte Partenaire', icon: 'fa-solid fa-address-card', iconBg: 'rgba(0,212,255,0.12)', type: 'Promotion', typeColor: '#00D4FF', desc: 'Profitez de nombreux avantages exclusifs et de réductions immédiates chez tous nos partenaires grâce à votre carte', stack: ['20 €'], status: 'En cours' },
-                { title: 'Pull 2025/2026', icon: 'fa-solid fa-shirt', iconBg: 'rgba(29,158,117,0.15)', type: 'Merchandise', typeColor: '#5DCAA5', desc: 'Portez haut les couleurs de l’édition 25/26 : bien plus qu’un pull, le symbole d’une promo qui vibre avec le BDE Alive.', stack: ['35 €'], status: 'En cours' }
-            ],
-            parties: [
-                { name: 'Match de foot A vs B', icon: 'fa-solid fa-futbol', bg: 'linear-gradient(135deg, #0A1E40, #1B3A6B)', date: 'Jeudi 19 Mars 2026 | 15h30', desc: 'Match de foot entre les classe A et B.', lieu: 'Stade René Guillou', participants: 30 },
-                { name: 'Soirée nouveaux BDE ', icon: 'fa-solid fa-champagne-glasses', bg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)', date: 'Jeudi 19 Mars 2026 | 22h00', desc: 'Soirée présentation du nouveau BDE Alive.', lieu: 'le Diplomate', participants: 80 },
-                { name: 'Tournoi de jeux vidéo vs MP', icon: 'fa-solid fa-gamepad', bg: 'linear-gradient(135deg, #0D2B1A, #1A5233)', date: 'Jeudi 12 Mars 2026 | 14h00', desc: 'Tournoi de jeux vidéo entre les étudiants du BDE Alive et du groupe MP.', lieu: 'Amphi MMI', participants: 40 }
-            ]
+            data() {
+                return {
+                    formSent: false,
+                    formSending: false,
+                    form: { name: '', email: '', subject: '', message: '' },
+                    projects: [
+                        { title: 'Carte Partenaire', icon: 'fa-solid fa-address-card', iconBg: 'rgba(0,212,255,0.12)', type: 'Promotion', typeColor: '#00D4FF', desc: 'Profitez de nombreux avantages exclusifs et de réductions immédiates chez tous nos partenaires grâce à votre carte', stack: ['20 €'], status: 'En cours' },
+                        { title: 'Pull 2025/2026', icon: 'fa-solid fa-shirt', iconBg: 'rgba(29,158,117,0.15)', type: 'Merchandise', typeColor: '#5DCAA5', desc: 'Portez haut les couleurs de l\'édition 25/26 : bien plus qu\'un pull, le symbole d\'une promo qui vibre avec le BDE Alive.', stack: ['35 €'], status: 'En cours' }
+                    ],
+                    parties: [
+                        { name: 'Match de foot A vs B', icon: 'fa-solid fa-futbol', bg: 'linear-gradient(135deg, #0A1E40, #1B3A6B)', date: 'Jeudi 19 Mars 2026 | 15h30', desc: 'Match de foot entre les classe A et B.', lieu: 'Stade René Guillou', participants: 30 },
+                        { name: 'Soirée nouveaux BDE ', icon: 'fa-solid fa-champagne-glasses', bg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)', date: 'Jeudi 19 Mars 2026 | 22h00', desc: 'Soirée présentation du nouveau BDE Alive.', lieu: 'le Diplomate', participants: 80 },
+                        { name: 'Tournoi de jeux vidéo vs MP', icon: 'fa-solid fa-gamepad', bg: 'linear-gradient(135deg, #0D2B1A, #1A5233)', date: 'Jeudi 12 Mars 2026 | 14h00', desc: 'Tournoi de jeux vidéo entre les étudiants du BDE Alive et du groupe MP.', lieu: 'Amphi MMI', participants: 40 }
+                    ]
+                }
+            },
+            methods: {
+                async sendForm() {
+                    if (!this.form.name || !this.form.email || !this.form.message) return;
+                    this.formSending = true;
+                    try {
+                        const res = await fetch('https://formspree.io/f/xlgawzrg', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify(this.form)
+                        });
+                        if (res.ok) this.formSent = true;
+                    } catch (e) {
+                        console.error(e);
+                    } finally {
+                        this.formSending = false;
+                    }
+                }
+            },
+            mounted() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) e.target.classList.add('visible');
+                    });
+                }, { threshold: 0.12 });
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
             }
-        },
-        methods: {
-            sendForm() {
-            if (this.form.name && this.form.email) {
-                this.formSent = true;
-            }
-            }
-        },
-        mounted() {
-            const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('visible');
-            });
-            }, { threshold: 0.12 });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
         }).mount('#app');
     </script>
     </body>

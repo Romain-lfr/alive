@@ -482,6 +482,14 @@ section {
     margin: 0;
 }
 
+.nav-logo-link {
+    text-decoration: none;
+}
+
+.section-label a{
+    color: var(--accent);
+}
+
 /* ── FILTER BAR (CSS 2) ── */
 .filter-bar {
     display: flex;
