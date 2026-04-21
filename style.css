@@ -1,3 +1,4 @@
+/* ── RESET & BASE (Priorité CSS 1) ── */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -30,9 +31,10 @@ body {
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* NAVBAR */
+/* ── NAVBAR (Priorité CSS 1) ── */
 nav {
     position: fixed;
     top: 0;
@@ -56,6 +58,7 @@ nav {
     color: var(--accent);
     letter-spacing: -0.5px;
     margin-bottom: 2svh;
+    text-decoration: none;
 }
 
 .nav-logo span {
@@ -85,7 +88,8 @@ nav {
     transition: color 0.2s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--accent);
 }
 
@@ -102,7 +106,7 @@ nav {
     color: #fff !important;
 }
 
-/* HERO */
+/* ── HERO (Priorité CSS 1 + Éléments uniques CSS 2) ── */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -137,7 +141,37 @@ nav {
     pointer-events: none;
 }
 
-/* MASCOTS */
+/* Éléments de fond uniques (CSS 2) */
+.hero-bg-text {
+    position: absolute;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(12rem, 25vw, 22rem);
+    font-weight: 800;
+    color: rgba(55, 138, 221, 0.04);
+    letter-spacing: -10px;
+    user-select: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.hero-scanline {
+    position: absolute;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    background: linear-gradient(180deg, transparent, rgba(0, 212, 255, 0.25) 30%, rgba(0, 212, 255, 0.25) 70%, transparent);
+    animation: scanPulse 4s ease-in-out infinite;
+}
+
+@keyframes scanPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Mascottes (CSS 1) */
 .hero-mascot {
     position: absolute;
     width: 500px;
@@ -172,6 +206,11 @@ nav {
     50%       { transform: translateY(calc(-50% - 18px)) rotate(-12deg) scaleX(-1); }
 }
 
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -202,6 +241,29 @@ nav {
 @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50%       { opacity: 0.5; transform: scale(1.5); }
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.5s ease both;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.5;
 }
 
 .hero h1 {
@@ -307,12 +369,80 @@ nav {
     letter-spacing: 1px;
 }
 
+/* Style de compteurs additionnels (CSS 2) */
+.hero-counts {
+    display: flex;
+    gap: 1px;
+    justify-content: center;
+    margin-top: 3svh;
+    animation: fadeUp 0.5s 0.3s ease both;
+}
+
+.count-item {
+    background: rgba(55, 138, 221, 0.08);
+    border: 1px solid rgba(55, 138, 221, 0.2);
+    padding: 0.6rem 1.4rem;
+    text-align: center;
+}
+
+.count-item:first-child { border-radius: 8px 0 0 8px; }
+.count-item:last-child { border-radius: 0 8px 8px 0; }
+
+.count-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.count-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.2rem;
+}
+
+/* Indicateur de scroll (CSS 2) */
+.hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeUp 0.5s 0.5s ease both;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    animation: scrollDrop 2s ease-in-out infinite;
+}
+
+@keyframes scrollDrop {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+.scroll-label {
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* SECTIONS */
+/* ── SECTIONS GÉNÉRIQUES (CSS 1) ── */
 section {
     padding: 6rem 2rem;
     max-width: 1200px;
@@ -352,7 +482,43 @@ section {
     margin: 0;
 }
 
-/* TEAM */
+/* ── FILTER BAR (CSS 2) ── */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(55, 138, 221, 0.2);
+    color: var(--muted);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+}
+
+.filter-btn:hover {
+    border-color: rgba(55, 138, 221, 0.5);
+    color: var(--blue-200);
+}
+
+.filter-btn.active {
+    background: rgba(55, 138, 221, 0.15);
+    border-color: var(--blue-400);
+    color: var(--accent);
+}
+
+/* ── TEAM SIMPLE (CSS 1) ── */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -431,7 +597,279 @@ section {
     border-radius: 4px;
 }
 
-/* PROJECTS */
+/* ── MEMBERS GRID AVANCÉ (CSS 2) ── */
+.members-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem 8rem;
+}
+
+.bureau-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.bureau-label span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.bureau-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(55,138,221,0.3), transparent);
+}
+
+.bureau-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.member-card {
+    background: var(--bg2);
+    border: 1px solid rgba(55, 138, 221, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: default;
+    position: relative;
+}
+
+.member-card:hover {
+    border-color: rgba(55, 138, 221, 0.45);
+    transform: translateY(-6px);
+}
+
+.member-card:hover .card-glow {
+    opacity: 1;
+}
+
+.card-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 20px;
+    background: radial-gradient(ellipse at top, rgba(0, 212, 255, 0.08), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.card-photo {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: var(--bg3);
+}
+
+.card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: saturate(0.85);
+}
+
+.member-card:hover .card-photo img {
+    transform: scale(1.06);
+    filter: saturate(1);
+}
+
+.card-photo-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.card-role-badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+}
+
+.card-photo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, rgba(7, 21, 37, 0.8));
+}
+
+.card-body {
+    padding: 1.25rem 1.4rem 1.4rem;
+}
+
+.card-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+}
+
+.card-firstname {
+    font-weight: 400;
+    color: var(--blue-200);
+}
+
+.card-promo {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.card-promo::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.6;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.member-card-sm {
+    background: var(--bg2);
+    border: 1px solid rgba(55, 138, 221, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default;
+}
+
+.member-card-sm:hover {
+    border-color: rgba(55, 138, 221, 0.35);
+    transform: translateY(-4px);
+}
+
+.card-photo-sm {
+    height: 160px;
+    overflow: hidden;
+    background: var(--bg3);
+    position: relative;
+}
+
+.card-photo-sm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.8);
+    transition: transform 0.4s ease, filter 0.4s;
+}
+
+.member-card-sm:hover .card-photo-sm img {
+    transform: scale(1.08);
+    filter: saturate(1);
+}
+
+.card-photo-sm::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, rgba(7,21,37,0.7));
+}
+
+.card-photo-fallback-sm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.card-body-sm {
+    padding: 0.9rem 1rem 1rem;
+}
+
+.card-name-sm {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.card-firstname-sm {
+    font-weight: 400;
+    color: var(--blue-200);
+    display: block;
+    font-size: 0.82rem;
+}
+
+.card-promo-sm {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+}
+
+.card-role-sm {
+    font-size: 0.68rem;
+    font-weight: 600;
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Thèmes par rôle (CSS 2) */
+.role-president { background: rgba(0, 212, 255, 0.15); color: var(--accent); }
+.role-vice { background: rgba(140, 90, 255, 0.15); color: #B69AFF; }
+.role-secretaire { background: rgba(55, 138, 221, 0.18); color: var(--blue-200); }
+.role-treso { background: rgba(29, 158, 117, 0.15); color: #5DCAA5; }
+.role-events { background: rgba(216, 90, 48, 0.18); color: #F0997B; }
+.role-comm { background: rgba(186, 117, 23, 0.15); color: #EF9F27; }
+.role-membre { background: rgba(55, 138, 221, 0.08); color: var(--muted); }
+
+.photo-president { background: linear-gradient(145deg, #061828, #0D3050); }
+.photo-vice { background: linear-gradient(145deg, #100820, #251045); }
+.photo-secretaire { background: linear-gradient(145deg, #061828, #0A2545); }
+.photo-treso { background: linear-gradient(145deg, #061A12, #0D3525); }
+.photo-events { background: linear-gradient(145deg, #1A0A06, #351520); }
+.photo-comm { background: linear-gradient(145deg, #1A1006, #352210); }
+.photo-membre { background: linear-gradient(145deg, #080F1A, #101D30); }
+
+
+/* ── PROJECTS (CSS 1) ── */
 .projects-section {
     background: var(--bg2);
     padding: 6rem 0;
@@ -540,7 +978,7 @@ section {
 .status-done { background: rgba(29,158,117,0.15); color: #5DCAA5; }
 .status-wip  { background: rgba(186,117,23,0.15); color: #EF9F27; }
 
-/* SOIREES */
+/* ── SOIREES (CSS 1) ── */
 .parties-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -638,7 +1076,7 @@ section {
     font-size: 0.85rem; 
 }
 
-/* CONTACT */
+/* ── CONTACT (CSS 1) ── */
 .contact-section {
     background: var(--bg2);
     padding: 6rem 0;
@@ -709,7 +1147,6 @@ section {
     font-weight: 600;
 }
 
-/* FORM */
 .contact-form {
     background: var(--bg3);
     border: 1px solid rgba(55, 138, 221, 0.18);
@@ -763,7 +1200,7 @@ section {
     font-weight: 600;
 }
 
-/* FOOTER */
+/* ── FOOTER (Priorité CSS 1) ── */
 footer {
     background: var(--bg);
     border-top: 1px solid rgba(55, 138, 221, 0.15);
@@ -788,6 +1225,18 @@ footer {
     font-size: 0.88rem;
     max-width: 280px;
     line-height: 1.6;
+}
+
+/* Logo alternatif du footer CSS 2 en cas de besoin HTML */
+.footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--accent);
+    text-decoration: none;
+}
+.footer-logo span {
+    color: var(--blue-200);
 }
 
 .footer-links {
@@ -861,7 +1310,7 @@ footer {
     font-size: 1rem; 
 }
 
-/* SCROLL REVEAL */
+/* ── SCROLL REVEAL (CSS 1 + Delays CSS 2) ── */
 .reveal {
     opacity: 0;
     transform: translateY(32px);
@@ -872,12 +1321,21 @@ footer {
     transform: translateY(0);
 }
 
-/* RESPONSIVE */
+.reveal-delay-1 { transition-delay: 0.05s; }
+.reveal-delay-2 { transition-delay: 0.1s; }
+.reveal-delay-3 { transition-delay: 0.15s; }
+.reveal-delay-4 { transition-delay: 0.2s; }
+.reveal-delay-5 { transition-delay: 0.25s; }
+
+/* ── RESPONSIVE (Fusion) ── */
 @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .contact-wrapper { grid-template-columns: 1fr; }
+    .hero h1 { letter-spacing: -2px; }
     .hero-stats { gap: 1.5rem; }
     .hero-mascot { width: 130px; }
     .hero-mascot-right { width: 110px; }
+    .bureau-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .card-photo { height: 180px; }
 }
