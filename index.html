@@ -23,10 +23,10 @@
                 </div>
             </a>
         <ul class="nav-links">
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#equipe">Équipe</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#soirees">Soirées</a></li>
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="equipe.html">Équipe</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="#partenaires">Partenaires</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -73,7 +73,7 @@
     <!-- PROJETS -->
     <div class="projects-section">
         <div class="projects-inner reveal" id="projets">
-        <div class="section-label">Derniers projets</div>
+        <div class="section-label"><a href="projets.html">Derniers projets -></a></div>
         <h2 class="section-title">Ce qu'on a construit</h2>
         <p class="section-desc">Des projets concrets, des outils utiles. On pousse le code jusqu'au bout.</p>
 
@@ -107,8 +107,8 @@
     <div class="divider"></div>
 
     <!-- SOIREES -->
-    <section id="soirees" class="reveal">
-        <div class="section-label">Dernières soirées</div>
+    <section class="reveal">
+        <div class="section-label"><a href="projets.html">Dernières soirées -></a></div>
         <h2 class="section-title">On sait aussi s'amuser</h2>
         <p class="section-desc">Le BDE c'est pas que des commits. On organise des événements qui restent dans les mémoires (ou pas, selon la soirée).</p>
 
@@ -131,6 +131,12 @@
         </div>
         </div>
     </section>
+
+    <div class="divider"></div>
+
+    <!-- PARTENAIRES -->
+
+    # TODO
 
     <div class="divider"></div>
 
@@ -198,7 +204,7 @@
                     </button>
                 </div>
                 <div class="form-success" v-else>
-                    ✅ Message envoyé !<br>
+                    Message envoyé !<br>
                     <span style="font-weight: 400; color: var(--muted); font-size: 0.88rem;">On te répond prochainement.</span>
                 </div>
             </div>
@@ -262,13 +268,18 @@
                     formSending: false,
                     form: { name: '', email: '', subject: '', message: '' },
                     projects: [
-                        { title: 'Carte Partenaire', icon: 'fa-solid fa-address-card', iconBg: 'rgba(0,212,255,0.12)', type: 'Promotion', typeColor: '#00D4FF', desc: 'Profitez de nombreux avantages exclusifs et de réductions immédiates chez tous nos partenaires grâce à votre carte', stack: ['20 €'], status: 'En cours' },
-                        { title: 'Pull 2025/2026', icon: 'fa-solid fa-shirt', iconBg: 'rgba(29,158,117,0.15)', type: 'Merchandise', typeColor: '#5DCAA5', desc: 'Portez haut les couleurs de l\'édition 25/26 : bien plus qu\'un pull, le symbole d\'une promo qui vibre avec le BDE Alive.', stack: ['35 €'], status: 'En cours' }
+                        { title: 'Pull 2025/2026', icon: 'fa-solid fa-shirt', iconBg: 'rgba(29,158,117,0.15)', type: 'Merchandise', typeColor: '#5DCAA5', desc: 'Portez haut les couleurs de l\'édition 25/26 : bien plus qu\'un pull, le symbole d\'une promo qui vibre avec le BDE Alive.', stack: ['35 €'], status: 'En cours' },
+                        { title: 'Carte Partenaire', icon: 'fa-solid fa-address-card', iconBg: 'rgba(0,212,255,0.12)', type: 'Promotion', typeColor: '#00D4FF', desc: 'Profitez de nombreux avantages exclusifs et de réductions immédiates chez tous nos partenaires grâce à votre carte', stack: ['20 €'], status: 'Prochainement' }
                     ],
                     parties: [
                         { name: 'Match de foot A vs B', icon: 'fa-solid fa-futbol', bg: 'linear-gradient(135deg, #0A1E40, #1B3A6B)', date: 'Jeudi 19 Mars 2026 | 15h30', desc: 'Match de foot entre les classe A et B.', lieu: 'Stade René Guillou', participants: 30 },
                         { name: 'Soirée nouveaux BDE ', icon: 'fa-solid fa-champagne-glasses', bg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)', date: 'Jeudi 19 Mars 2026 | 22h00', desc: 'Soirée présentation du nouveau BDE Alive.', lieu: 'le Diplomate', participants: 80 },
                         { name: 'Tournoi de jeux vidéo vs MP', icon: 'fa-solid fa-gamepad', bg: 'linear-gradient(135deg, #0D2B1A, #1A5233)', date: 'Jeudi 12 Mars 2026 | 14h00', desc: 'Tournoi de jeux vidéo entre les étudiants du BDE Alive et du groupe MP.', lieu: 'Amphi MMI', participants: 40 }
+                    ],
+                    partners: [ 
+                        { name: 'KFC',          icon: 'fa-solid fa-bread-slice',            bg: 'rgba(255,193,7,0.15)', color: '#FFC107', desc: 'Partenaire officiel pour les petits creux : profitez de réductions exclusives sur leurs délicieuses viennoiseries et sandwiches.',         offre: '10% de réduction sur présentation de la carte BDE Alive' },
+                        { name: 'Le Diplomate', icon: 'fa-solid fa-martini-glass-citrus',   bg: 'rgba(255,0,123,0.12)', color: '#FF007B', desc: 'Le lieu incontournable pour vos soirées : profitez d\'offres exclusives sur les consommations et l\'entrée.',                              offre: 'Entrée gratuite et 1 boisson offerte sur présentation de la carte BDE Alive' },
+                        { name: 'Le truc',      icon: 'fa-solid fa-cocktail',               bg: 'rgba(255,140,0,0.12)', color: '#FF8C00', desc: 'Le lieu incontournable pour vos soirées : profitez d\'offres exclusives sur les consommations et l\'entrée.',                              offre: 'Entrée gratuite et 1 boisson offerte sur présentation de la carte BDE Alive' }
                     ]
                 }
             },
