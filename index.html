@@ -26,7 +26,7 @@
             <li><a href="index.html" class="active">Accueil</a></li>
             <li><a href="equipe.html">Équipe</a></li>
             <li><a href="projets.html">Projets</a></li>
-            <li><a href="partenaire.html">Partenaires</a></li>
+            <li><a href="partenaires.html">Partenaires</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -136,30 +136,54 @@
 
     <!-- PARTENAIRES -->
     <section id="partenaires" class="reveal">
-        <div class="section-label">Nos partenaires</div>
+        <div class="section-label"><a href="partenaires.html">Nos partenaires -></a></div>
         <h2 class="section-title">Ils nous font confiance</h2>
         <p class="section-desc">Avec ta carte BDE Alive, profite de réductions et d'avantages exclusifs chez tous nos partenaires.</p>
 
-        <div class="partners-grid">
-            <div class="partner-card" v-for="partner in partners" :key="partner.name">
-                <div class="partner-header">
-                    <div class="partner-icon" :style="{ background: partner.bg }">
-                        <i :class="partner.icon" :style="{ color: partner.color }"></i>
+        <!-- Grille -->
+        <div class="partners-grid-full">
+            <a
+                v-for="(partner, index) in filteredPartners"
+                :key="partner.name"
+                :href="partner.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="partner-card-full reveal"
+                :class="'reveal-delay-' + ((index % 5) + 1)"
+            >
+                <div class="pcf-glow"></div>
+
+                <!-- Bannière -->
+                <div class="pcf-banner" :style="{ background: partner.bannerBg }">
+                    <div class="pcf-banner-overlay"></div>
+                    <div class="pcf-banner-icon">
+                        <img v-if="partner.logo" :src="partner.logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+                        <i v-else :class="partner.icon" :style="{ color: partner.color }"></i>
                     </div>
-                    <div class="partner-name">{{ partner.name }}</div>
+                    <div class="pcf-category-badge">{{ partner.category }}</div>
+                    <i class="fa-solid fa-arrow-up-right-from-square pcf-arrow"></i>
                 </div>
-                <p class="partner-desc">{{ partner.desc }}</p>
-                <div class="partner-offre">
-                    <i class="fa-solid fa-tag" style="font-size: 0.75rem;"></i>
-                    {{ partner.offre }}
+
+                <!-- Corps -->
+                <div class="pcf-body">
+                    <div class="pcf-name">{{ partner.name }}</div>
+                    <p class="pcf-desc">{{ partner.desc }}</p>
+                    <div class="pcf-offre">
+                        <i class="fa-solid fa-tag"></i>
+                        {{ partner.offre }}
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
-        <div class="partner-cta">
+        <!-- CTA devenir partenaire -->
+        <div class="partner-become reveal">
             <i class="fa-solid fa-handshake"></i>
-            Vous souhaitez devenir partenaire ?
-            <a href="#contact" class="btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">Contactez-nous</a>
+            <div class="partner-become-text">
+                <strong>Vous souhaitez devenir partenaire ?</strong>
+                <span>Rejoignez notre réseau et profitez d'une visibilité auprès de toute la filière informatique.</span>
+            </div>
+            <a href="#contact" class="btn-outline" style="white-space: nowrap;">Nous contacter</a>
         </div>
     </section>
 
@@ -292,6 +316,7 @@
                     formSent: false,
                     formSending: false,
                     form: { name: '', email: '', subject: '', message: '' },
+                    activeFilter: 'Tous',
                     projects: [
                         { title: 'Pull 2025/2026', icon: 'fa-solid fa-shirt', iconBg: 'rgba(29,158,117,0.15)', type: 'Merchandise', typeColor: '#5DCAA5', desc: 'Portez haut les couleurs de l\'édition 25/26 : bien plus qu\'un pull, le symbole d\'une promo qui vibre avec le BDE Alive.', stack: ['35 €'], status: 'En cours' },
                         { title: 'Carte Partenaire', icon: 'fa-solid fa-address-card', iconBg: 'rgba(0,212,255,0.12)', type: 'Promotion', typeColor: '#00D4FF', desc: 'Profitez de nombreux avantages exclusifs et de réductions immédiates chez tous nos partenaires grâce à votre carte', stack: ['20 €'], status: 'Prochainement' }
@@ -301,11 +326,59 @@
                         { name: 'Soirée nouveaux BDE ', icon: 'fa-solid fa-champagne-glasses', bg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)', date: 'Jeudi 19 Mars 2026 | 22h00', desc: 'Soirée présentation du nouveau BDE Alive.', lieu: 'le Diplomate', participants: 80 },
                         { name: 'Tournoi de jeux vidéo vs MP', icon: 'fa-solid fa-gamepad', bg: 'linear-gradient(135deg, #0D2B1A, #1A5233)', date: 'Jeudi 12 Mars 2026 | 14h00', desc: 'Tournoi de jeux vidéo entre les étudiants du BDE Alive et du groupe MP.', lieu: 'Amphi MMI', participants: 40 }
                     ],
-                    partners: [ 
-                        { name: 'KFC',          icon: 'fa-solid fa-bread-slice',            bg: 'rgba(255,193,7,0.15)', color: '#FFC107', desc: 'Partenaire officiel pour les petits creux : profitez de réductions exclusives sur leurs délicieuses viennoiseries et sandwiches.',         offre: '10% de réduction sur présentation de la carte BDE Alive' },
-                        { name: 'Le Diplomate', icon: 'fa-solid fa-martini-glass-citrus',   bg: 'rgba(255,0,123,0.12)', color: '#FF007B', desc: 'Le lieu incontournable pour vos soirées : profitez d\'offres exclusives sur les consommations et l\'entrée.',                              offre: 'Entrée gratuite et 1 boisson offerte sur présentation de la carte BDE Alive' },
-                        { name: 'Le truc',      icon: 'fa-solid fa-cocktail',               bg: 'rgba(255,140,0,0.12)', color: '#FF8C00', desc: 'Le lieu incontournable pour vos soirées : profitez d\'offres exclusives sur les consommations et l\'entrée.',                              offre: 'Entrée gratuite et 1 boisson offerte sur présentation de la carte BDE Alive' }
+                    partners: [
+                        // ── RESTAURATION ──
+                        {
+                            name: 'KFC',
+                            icon: 'fa-solid fa-drumstick-bite',
+                            color: '#F40000',
+                            bannerBg: 'linear-gradient(135deg, #3D0000, #7A0A00)',
+                            category: 'Restauration',
+                            desc: 'Le temple du poulet frit croustillant où les seaux à partager et les recettes secrètes du Colonel ravissent les gourmands pressés',
+                            offre: '10% de réduction sur présentation de la carte BDE Alive',
+                            logo: './img/partenaires/kfc.webp',
+                            url: './partenaires/kfc.html'
+                        },
+                        {
+                            name: 'Le Diplomate',
+                            icon: 'fa-solid fa-martini-glass-citrus',
+                            color: '#FF007B',
+                            bannerBg: 'linear-gradient(135deg, #1A0A3D, #3B1A7A)',
+                            category: 'Bar',
+                            desc: 'Un repaire survitaminé où les étudiants se retrouvent pour décompresser autour de tarifs préférentiels sur les boissons.',
+                            offre: 'Réduction sur les Yaegerbombs et biéres avec la carte BDE Alive',
+                            logo: './img/partenaires/diplomate.webp',
+                            url: '#'
+                        },
+                        {
+                            name: 'Le Truc',
+                            icon: 'fa-solid fa-cocktail',
+                            color: '#FF8C00',
+                            bannerBg: 'linear-gradient(135deg, #2A1500, #5A3000)',
+                            category: 'Bar',
+                            desc: 'Le Truc Café, c\'est le bar à jeux du coin ! Seul ou à plusieurs, en plus des jeux, vous aurez le loisir de découvrir des produits locaux',
+                            offre: 'Réduction sur les cocktails du moments et biéres avec la carte BDE Alive',
+                            logo: './img/partenaires/truc.webp',
+                            url: '#'
+                        },
                     ]
+                }
+            },
+            computed: {
+                categories() {
+                    const cats = ['Tous', ...new Set(this.partners.map(p => p.category))];
+                    return cats;
+                },
+                filteredPartners() {
+                    if (this.activeFilter === 'Tous') return this.partners;
+                    return this.partners.filter(p => p.category === this.activeFilter);
+                }
+            },
+            watch: {
+                activeFilter() {
+                    this.$nextTick(() => {
+                        document.querySelectorAll('.partner-card-full').forEach(el => el.classList.add('visible'));
+                    });
                 }
             },
             methods: {
@@ -333,6 +406,9 @@
                     });
                 }, { threshold: 0.12 });
                 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                this.$nextTick(() => {
+                    document.querySelectorAll('.partner-card-full').forEach(el => el.classList.add('visible'));
+                });
             }
         }).mount('#app');
     </script>
