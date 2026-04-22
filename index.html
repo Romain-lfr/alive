@@ -26,7 +26,7 @@
             <li><a href="index.html" class="active">Accueil</a></li>
             <li><a href="equipe.html">Équipe</a></li>
             <li><a href="projets.html">Projets</a></li>
-            <li><a href="#partenaires">Partenaires</a></li>
+            <li><a href="partenaire.html">Partenaires</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -135,8 +135,33 @@
     <div class="divider"></div>
 
     <!-- PARTENAIRES -->
+    <section id="partenaires" class="reveal">
+        <div class="section-label">Nos partenaires</div>
+        <h2 class="section-title">Ils nous font confiance</h2>
+        <p class="section-desc">Avec ta carte BDE Alive, profite de réductions et d'avantages exclusifs chez tous nos partenaires.</p>
 
-    # TODO
+        <div class="partners-grid">
+            <div class="partner-card" v-for="partner in partners" :key="partner.name">
+                <div class="partner-header">
+                    <div class="partner-icon" :style="{ background: partner.bg }">
+                        <i :class="partner.icon" :style="{ color: partner.color }"></i>
+                    </div>
+                    <div class="partner-name">{{ partner.name }}</div>
+                </div>
+                <p class="partner-desc">{{ partner.desc }}</p>
+                <div class="partner-offre">
+                    <i class="fa-solid fa-tag" style="font-size: 0.75rem;"></i>
+                    {{ partner.offre }}
+                </div>
+            </div>
+        </div>
+
+        <div class="partner-cta">
+            <i class="fa-solid fa-handshake"></i>
+            Vous souhaitez devenir partenaire ?
+            <a href="#contact" class="btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">Contactez-nous</a>
+        </div>
+    </section>
 
     <div class="divider"></div>
 
